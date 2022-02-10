@@ -1,14 +1,14 @@
 import React from 'react';
-
+import '../components/style.css'
 
 function SearchMain() {
   return (
     <div className='wrap'>
       <div className='search'>
-        <input type='search' placeholder='Type City Name' id="search"/>
+        <input type='search' placeholder='Search City ' id="search"/>
       </div>
     <button className='searchButton'>
-      Search city
+      Search
     </button>
     </div>
   )
