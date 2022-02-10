@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "../components/style.css";
+import WeatherDetails from "./WeatherDetails";
 
 function SearchMain() {
   const [serachTerm, seSearchTerm] = useState("tehran");
   console.log(serachTerm);
 
   return (
+    <>
     <div className="wrap">
       <div className="search">
         <input
@@ -18,6 +20,8 @@ function SearchMain() {
       </div>
       <button className="searchButton">Search</button>
     </div>
+    <WeatherDetails/>
+    </>
   );
 }
 
