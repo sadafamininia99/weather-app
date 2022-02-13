@@ -14,6 +14,7 @@ function WeatherDetails() {
           <div className="weatherCondition">sunny</div>
           <div className="place">Tehran ,IR</div>
         </div>
+        <div className="date">{new Date().toLocaleString()} </div>
       </article>
     </>
   );
