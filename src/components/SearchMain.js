@@ -4,7 +4,12 @@ import WeatherDetails from "./WeatherDetails";
 
 function SearchMain() {
   const [serachTerm, seSearchTerm] = useState("tehran");
+
+
   console.log(serachTerm);
+//useefect 
+//async function
+//promises
 
   return (
     <>
@@ -18,14 +23,14 @@ function SearchMain() {
           onChange={(e) => seSearchTerm(e.target.value)}
         />
       </div>
-      <button className="searchButton">Search</button>
+      <button className="searchButton" onClick={getWeatherInfo}>Search</button>
     </div>
     <WeatherDetails/>
     </>
   );
 }
 
-export default SearchMain;
 
-// 562a97288069061860b1c44b209f65d3 code
-// dbff20676c8bb0c8ab7ac4abb57b0d68
+
+
+export default SearchMain;
