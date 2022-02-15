@@ -7,18 +7,28 @@ function SearchMain() {
   const [weatherData, setWeatherData] = useState([]);
   const openweatherUserKey = "bac2ba7baf90858f69669bde08e1a365";
 
-  // TO DO: Display dynamic data to the user
+  console.log(serachTerm);
+  //useefect
+  //async function
+  //promises
+  //try catch
 
   const getWeatherInfo = async () => {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${serachTerm}&appid=${openweatherUserKey}`,
-      {
-        method: "GET",
-      }
-    );
-    const data = await response.json();
-    setWeatherData(data);
+    try {
+      let url = `http://api.openweathermap.org/data/2.5/weather?q=${serachTerm}&units=metric&appid=562a97288069061860b1c44b209f65d3`;
+      let res = await fetch(url);
+      let data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  //562a97288069061860b1c44b209f65d3
+  //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=562a97288069061860b1c44b209f65d3
+  //http://api.openweathermap.org/data/2.5/weather?q=tehran&units=metric&appid=562a97288069061860b1c44b209f65d3
+  // useEffect(() => {
+  //function
 
   useEffect(() => {
     getWeatherInfo();
