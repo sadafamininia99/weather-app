@@ -10,10 +10,19 @@ function SearchMain() {
   //async function
   //promises
   //try catch
-  const getWeatherInfo=()=>{
-    try{
-     let url = 
+
+  const getWeatherInfo =async()=>{
+     
+    try {
+     let url =`http://api.openweathermap.org/data/2.5/weather?q=${serachTerm}&units=metric&appid=562a97288069061860b1c44b209f65d3`
+      let res = await fetch(url);
+      let data = await res.json();
+      console.log(data);
     }
+    catch(error){
+      console.log(error);
+    }
+    
   }
   
   //562a97288069061860b1c44b209f65d3
