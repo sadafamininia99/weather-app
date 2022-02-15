@@ -24,11 +24,6 @@ function SearchMain() {
     }
   };
 
-  //562a97288069061860b1c44b209f65d3
-  //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=562a97288069061860b1c44b209f65d3
-  //http://api.openweathermap.org/data/2.5/weather?q=tehran&units=metric&appid=562a97288069061860b1c44b209f65d3
-  // useEffect(() => {
-  //function
 
   useEffect(() => {
     getWeatherInfo();
