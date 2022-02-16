@@ -1,7 +1,7 @@
 
 
 # Demo :
-![screenshot](Screenshot from 2022-02-16 14-27-39.png)
+![screenshot](https://github.com/sadafamininia99/weather-app/blob/master/Screenshot%20from%202022-02-16%2014-27-39.png)
 
 # Getting Started with Create React App
 
