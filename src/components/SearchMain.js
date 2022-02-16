@@ -1,29 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../components/style.css";
 import WeatherDetails from "./WeatherDetails";
 
 function SearchMain() {
-  const [serachTerm, seSearchTerm] = useState("tehran");
-  const [weatherData, setWeatherData] = useState([]);
-  const openweatherUserKey = "bac2ba7baf90858f69669bde08e1a365";
-
-  console.log(serachTerm);
-  //useefect
-  //async function
-  //promises
-  //try catch
+  const [searchTerm, setSearchTerm] = useState("Tehran");
+  const [tempInfo, setTempInfo] = useState({});
 
   const getWeatherInfo = async () => {
     try {
-      let url = `http://api.openweathermap.org/data/2.5/weather?q=${serachTerm}&units=metric&appid=562a97288069061860b1c44b209f65d3`;
+      let url = `http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&units=metric&appid=562a97288069061860b1c44b209f65d3`;
+
       let res = await fetch(url);
       let data = await res.json();
-      console.log(data);
+      const { temp, humidity, pressure } = data.main;
+      const { main: weatherType } = data.weather[0];
+      const { name } = data;
+      const { speed } = data.wind;
+      const { country, sunset } = data.sys;
+
+      const myNewWeatherInfo = {
+        temp,
+        humidity,
+        pressure,
+        weatherType,
+        name,
+        speed,
+        country,
+        sunset,
+      };
+
+      setTempInfo(myNewWeatherInfo);
+      // console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-
 
   useEffect(() => {
     getWeatherInfo();
@@ -35,17 +46,18 @@ function SearchMain() {
         <div className="search">
           <input
             type="search"
-            placeholder="Search City... "
+            placeholder="Search city.."
             id="search"
-            value={serachTerm}
-            onChange={(e) => seSearchTerm(e.target.value)}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <button className="searchButton" onClick={getWeatherInfo}>
+            Search
+          </button>
         </div>
-        <button className="searchButton" onClick={getWeatherInfo}>
-          Search
-        </button>
       </div>
-      <WeatherDetails />
+      {/* This the the weather details page */}
+      <WeatherDetails {...tempInfo} />
     </>
   );
 }
